@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package lemonade;
+
+option go_package = "pb";
+
+import "laptop.proto";
+
+message CreateLaptopRequest {
+    Laptop laptop = 1;
+}
+
+message CreateLaptopResponse {
+    string id = 1;
+}
+
+message CreateHelloRequest {
+    string name = 1;
+}
+
+message CreateHelloResponse {
+    string reply = 1;
+}
+
+message CreateFindRequest {
+    string id = 1;
+}
+
+message CreateFindResponse {
+    Laptop laptop = 1;
+}
+
+service LaptopService {
+    rpc CreateLaptop(CreateLaptopRequest) returns (CreateLaptopResponse) {}
+    rpc Hello(CreateHelloRequest) returns (CreateHelloResponse) {}
+    rpc Find(CreateFindRequest) returns (CreateFindResponse) {}
+}
